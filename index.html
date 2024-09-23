@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HI BOSSING!</title>
+<style>
+  body {
+    font-family: cursive;
+    text-align: center;
+    background-color: rgb(177, 27, 203);
+  }
+  #lyrics {
+    margin-top: 20px;
+    font-size: 20px;
+  }
+</style>
+</head>
+<body>
+  <h1>I Miss You!!</h1>
+  <audio id="myAudio">
+    <source src="Rob Deniel - Miss Miss (mp3cut.net).mp3" type="audio/mpeg">
+  </audio>
+  <button onclick="togglePlay()">Play Music</button>
+  <div id="lyrics"></div>
+
+  <script>
+    var lyricsElement = document.getElementById("lyrics");
+    var lyrics = ["O nasa’n ka ba mahal", "Hinahanap ka na ng puso ko", " Baby ikaw lang talaga", " Ang nami-miss ko sa tuwi-tuwina", " Sa tuwi-twina", " At baby ako’y mag-aabang", " At dadalhin ka sa nakaraan", " Sa nakaraan", " Malayo man ako sa ’yo sinta", " Uwi ka na"];
+    var currentLine = 0;
+    var audio = document.getElementById("myAudio");
+
+    function togglePlay() {
+      if (audio.paused) {
+        audio.play();
+        showLyrics();
+      } else {
+        audio.pause();
+      }
+    }
+
+    var timings = [4090, 5000, 3000, 6099, 6090, 5099, 7099, 8090, 5000, 8000];
+function showLyrics() {
+  if (currentLine < lyrics.length) {
+    lyricsElement.innerText += lyrics[currentLine] + "\n";
+    setTimeout(showLyrics, timings[currentLine]);
+    currentLine++;
+  }
+}
+  </script>
+</body>
+</html>
